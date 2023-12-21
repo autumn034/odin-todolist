@@ -6,14 +6,15 @@ html, body {
 
 .app {
     display: flex;
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
 }
 
 .projects {
     background-color: #f8f9fc;
     width: 25vw;
-    min-width: 256px;
+    min-width: 250px;
+    max-width: 350px;
     box-sizing: border-box;
     padding: 32px;
 }
@@ -30,16 +31,105 @@ html, body {
 
 .projects__list__item {
     background-color: #f8f9fc;
-    padding: 16px 8px;
+    padding: 16px 16px;
     border-radius: 8px;
     transition: background-color .3s ;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projects__list__item__config__button {
+    height: 25px;
+    box-sizing: border-box;
+    padding: 4px;
+    transition: background-color 0.3s;
+    border-radius: 50%;
+}
+
+.projects__list__item__config__button:hover {
+    background-color: #d4d4d4;
+    padding: 4px;
 }
 
 .projects__list__item:hover {
     background-color: #eeeeee;
 }
 
+.projects__add__button {
+    background-color: #f0f0f0;
+    padding: 16px 16px;
+    border-radius: 8px;
+    transition: background-color .3s ;
+}
+
+.projects__add__button:hover {
+    background-color: #e7e7e7;
+    cursor: pointer;
+}
+
 .whitespace {
     height: 32px;
 }
 
+.tasks {
+    flex: 1;
+    max-width: 1000px;
+    box-sizing: border-box;
+    padding: 64px;
+}
+
+.tasks__header {
+    font-size: 2rem;
+}
+
+.tasks__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tasks__list__item {
+    background-color: #f8f9fc;
+    padding: 12px 8px;
+    border-radius: 8px;
+    transition: background-color .3s ;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tasks__list__item__check {
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 50%;
+
+    transition: background-color 0.2s;
+}
+
+.tasks__list__item__check:hover {
+    cursor: pointer;
+    background-color: green;
+}
+
+.tasks__list__item__section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tasks__list__item__config {
+    height: 25px;
+    box-sizing: border-box;
+    padding: 4px;
+    transition: background-color 0.3s;
+    border-radius: 50%;
+}
+
+.tasks__list__item__config:hover {
+    background-color: #e7e7e7;
+    padding: 4px;
+}
