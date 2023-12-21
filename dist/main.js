@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("function component() \r\n{\r\n    const element = document.createElement(\"div\");\r\n    element.innerHTML = \"Hello world!\";\r\n    return element;\r\n}\r\n\r\ndocument.body.appendChild(component());\n\n//# sourceURL=webpack://odin-todolist/./src/index.js?");
+eval("function component() \r\n{\r\n    const element = document.createElement(\"div\");\r\n    element.innerHTML = \"Hello world!\";\r\n    return element;\r\n}\r\n\r\n// document.body.appendChild(component());\n\n//# sourceURL=webpack://odin-todolist/./src/index.js?");
 
 /***/ })
 

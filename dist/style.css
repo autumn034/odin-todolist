@@ -1,0 +1,45 @@
+html, body {
+    margin: unset;
+    padding: unset;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.app {
+    display: flex;
+    width: 100vh;
+    height: 100vh;
+}
+
+.projects {
+    background-color: #f8f9fc;
+    width: 25vw;
+    min-width: 256px;
+    box-sizing: border-box;
+    padding: 32px;
+}
+
+.projects__header {
+    font-size: 2rem;
+}
+
+.projects__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.projects__list__item {
+    background-color: #f8f9fc;
+    padding: 16px 8px;
+    border-radius: 8px;
+    transition: background-color .3s ;
+}
+
+.projects__list__item:hover {
+    background-color: #eeeeee;
+}
+
+.whitespace {
+    height: 32px;
+}
+
