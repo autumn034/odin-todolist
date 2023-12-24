@@ -69,6 +69,43 @@ html, body {
     cursor: pointer;
 }
 
+.projects__new-project-form {
+    display: none;
+}
+
+.projects__new-project-form__text-input {
+    all: unset;
+    background-color: #f0f0f0;
+    padding: 16px 16px;
+    border-radius: 8px;
+    transition: background-color .3s ;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.projects__new-project-form__button {
+    all: unset;
+    background-color: #f0f0f0;
+    padding: 16px 16px;
+    border-radius: 8px;
+    transition: background-color .3s ;
+    
+}
+
+.projects__new-project-form__button--cancel {
+    background-color: red;
+}
+
+.projects__new-project-form__button--create {
+    background-color: green;
+}
+
+.projects__new-project-form__button:hover {
+    cursor: pointer;
+}
+
+
+
 .whitespace {
     height: 32px;
 }
