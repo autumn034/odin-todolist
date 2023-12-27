@@ -6,17 +6,36 @@ class Task {
     }
 }
 
-let projects = [
+const projectsTemplate = [
     {id: 1, name: "Work"}, 
     {id: 2, name: "School"}, 
     {id: 3, name: "Personal"}
-]
+];
+
+
+const LOCAL_STORAGE_PROJECTS_KEY = "odintodo.projects";
+let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || projectsTemplate;
+
+
+function saveAndRender()
+{
+    save();
+    render();
+}
+
+function save() 
+{
+    localStorage.setItem(LOCAL_STORAGE_PROJECTS_KEY, JSON.stringify(projects));
+}
+
+
+
 const projectsContainerDiv = document.querySelector(".projects__list");
 const addNewProjectsDiv = document.querySelector(".projects__add__button");
 const projectsNewProjectFormDiv = document.querySelector(".projects__new-project-form");
 const projectsFormCancelButton = document.querySelector(".projects__new-project-form__button--cancel");
 const projectsFormAddButton = document.querySelector(".projects__new-project-form__button--create");
-const projectsProjectTextInput = document.querySelector(".projects__new-project-form__text-input");
+const newProjectInput = document.querySelector(".projects__new-project-form__text-input");
 
 addNewProjectsDiv.addEventListener("click", (e) => {
     addNewProjectsDiv.style.display = "none";
@@ -29,16 +48,20 @@ projectsFormCancelButton.addEventListener("click", (e) => {
 });
 
 projectsFormAddButton.addEventListener("click", (e) => {
-    console.log(projectsProjectTextInput.value);
     addNewProjectsDiv.style.display = "block";
     projectsNewProjectFormDiv.style.display = "none";
+    let newProjectInputValue = newProjectInput.value;
 
-    let newProject = createProject(projectsProjectTextInput.value);
+    if (newProjectInputValue == null || newProjectInputValue == "") {
+        alert("Blank value cannot be used for project name.");
+        return
+    }
+
+    let newProject = createProject(newProjectInputValue);
     projects.push(newProject);
-    projectsProjectTextInput.value = "";
+    newProjectInput.value = "";
     
-    render();
-    console.log(projects);
+    saveAndRender();
 });
 
 let createProject = (name) => {
