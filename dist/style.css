@@ -40,6 +40,15 @@ html, body {
     justify-content: space-between;
 }
 
+.projects__list__item:hover {
+    background-color: #eeeeee;
+}
+
+
+.projects__list__item--active {
+    background-color: #eeeeee;
+}
+
 .projects__list__item__config__button {
     height: 25px;
     box-sizing: border-box;
@@ -53,9 +62,6 @@ html, body {
     padding: 4px;
 }
 
-.projects__list__item:hover {
-    background-color: #eeeeee;
-}
 
 .projects__add__button {
     background-color: #f0f0f0;

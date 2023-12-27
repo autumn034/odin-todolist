@@ -14,7 +14,11 @@ const projectsTemplate = [
 
 
 const LOCAL_STORAGE_PROJECTS_KEY = "odintodo.projects";
+const LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY = "odintodo.focus-project";
+
 let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || projectsTemplate;
+let activeProjectId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY)) || 1;
+
 
 
 function saveAndRender()
@@ -26,8 +30,8 @@ function saveAndRender()
 function save() 
 {
     localStorage.setItem(LOCAL_STORAGE_PROJECTS_KEY, JSON.stringify(projects));
+    localStorage.setItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY, JSON.stringify(activeProjectId));
 }
-
 
 
 const projectsContainerDiv = document.querySelector(".projects__list");
@@ -36,6 +40,12 @@ const projectsNewProjectFormDiv = document.querySelector(".projects__new-project
 const projectsFormCancelButton = document.querySelector(".projects__new-project-form__button--cancel");
 const projectsFormAddButton = document.querySelector(".projects__new-project-form__button--create");
 const newProjectInput = document.querySelector(".projects__new-project-form__text-input");
+
+
+projectsContainerDiv.addEventListener("click", e => {
+    activeProjectId = e.target.dataset.projectId;
+    saveAndRender();
+});
 
 addNewProjectsDiv.addEventListener("click", (e) => {
     addNewProjectsDiv.style.display = "none";
@@ -68,13 +78,19 @@ let createProject = (name) => {
     return {id: Date.now().toString(), name: name, tasks: []};
 }
 
-
 function render() {
     clearElement(projectsContainerDiv);
 
     projects.forEach(project => {
         let listItemDiv = document.createElement("div");
         listItemDiv.className = "projects__list__item";
+
+        if (activeProjectId == project.id) 
+        {
+            listItemDiv.classList.add("projects__list__item--active");
+        }
+
+
         listItemDiv.dataset.projectId = project.id;
 
         let listItemConfigButton = document.createElement("img");
