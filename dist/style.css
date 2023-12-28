@@ -1,3 +1,4 @@
+/*  */
 html, body {
     margin: unset;
     padding: unset;
@@ -10,8 +11,13 @@ html, body {
     height: 100vh;
 }
 
+.whitespace {
+    height: 32px;
+}
+
+/* Projects */
 .projects {
-    background-color: #f8f9fc;
+    background-color: #ffffff;;
     width: 25vw;
     min-width: 250px;
     max-width: 350px;
@@ -20,7 +26,9 @@ html, body {
 }
 
 .projects__header {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 4px 12px;
 }
 
 .projects__list {
@@ -30,48 +38,44 @@ html, body {
 }
 
 .projects__list__item {
-    background-color: #f8f9fc;
-    padding: 16px 16px;
-    border-radius: 8px;
-    transition: background-color .3s ;
-
+    padding: 8px 16px;
+    border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .projects__list__item:hover {
-    background-color: #eeeeee;
+    cursor: pointer;
+    background-color: #1072FA;
+    color: #ffffff;
+    user-select: none; /* disable text selection */
 }
-
 
 .projects__list__item--active {
-    background-color: #eeeeee;
+    background-color: #000000;
+    color: #ffffff;
 }
 
-.projects__list__item__config__button {
-    height: 25px;
-    box-sizing: border-box;
-    padding: 4px;
-    transition: background-color 0.3s;
-    border-radius: 50%;
+.projects__list__item--active:hover {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: default;
 }
-
-.projects__list__item__config__button:hover {
-    background-color: #d4d4d4;
-    padding: 4px;
-}
-
 
 .projects__add__button {
-    background-color: #f0f0f0;
-    padding: 16px 16px;
-    border-radius: 8px;
-    transition: background-color .3s ;
+    background-color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 4px;
+
+    text-align: right;
+    width: fit-content;
+    margin-left: auto;
 }
 
 .projects__add__button:hover {
-    background-color: #e7e7e7;
+    background-color: #1072FA;
+    color: #ffffff;
     cursor: pointer;
 }
 
@@ -82,9 +86,8 @@ html, body {
 .projects__new-project-form__text-input {
     all: unset;
     background-color: #f0f0f0;
-    padding: 16px 16px;
-    border-radius: 8px;
-    transition: background-color .3s ;
+    padding: 8px 16px;
+    border-radius: 4px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -99,23 +102,20 @@ html, body {
 }
 
 .projects__new-project-form__button--cancel {
-    background-color: red;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
 }
 
 .projects__new-project-form__button--create {
-    background-color: green;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
 }
 
 .projects__new-project-form__button:hover {
     cursor: pointer;
 }
 
-
-
-.whitespace {
-    height: 32px;
-}
-
+/* Tasks */
 .tasks {
     flex: 1;
     max-width: 1000px;

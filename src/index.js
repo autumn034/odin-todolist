@@ -43,9 +43,37 @@ const newProjectInput = document.querySelector(".projects__new-project-form__tex
 
 
 projectsContainerDiv.addEventListener("click", e => {
+    if (!(e.target.classList.contains("projects__list__item"))) {
+        return;
+    }
+
     activeProjectId = e.target.dataset.projectId;
     saveAndRender();
 });
+
+// projectsContainerDiv.addEventListener("contextmenu", e => {
+//     if (!(e.target.classList.contains("projects__list__item"))) {
+//         return;
+//     }
+    
+//     e.preventDefault();
+
+//     let menu = document.createElement("div");
+//     menu.style.position = "absolute";
+//     menu.style.backgroundColor = "black";
+//     menu.style.height = "500px";
+//     menu.style.width = "500px";
+//     menu.style.top = "5px";
+
+//     e.target.style.position = "relative";
+//     e.target.appendChild(menu);
+
+
+    
+
+
+// });
+
 
 addNewProjectsDiv.addEventListener("click", (e) => {
     addNewProjectsDiv.style.display = "none";
@@ -85,21 +113,14 @@ function render() {
         let listItemDiv = document.createElement("div");
         listItemDiv.className = "projects__list__item";
 
+        // add css to a project that show that it was selected
         if (activeProjectId == project.id) 
         {
             listItemDiv.classList.add("projects__list__item--active");
         }
 
-
         listItemDiv.dataset.projectId = project.id;
-
-        let listItemConfigButton = document.createElement("img");
-        listItemConfigButton.className = "projects__list__item__config__button";
-        listItemConfigButton.setAttribute("src", "asset/cog.svg");
-        listItemConfigButton.setAttribute("alt", "Edit Project");
-
         listItemDiv.appendChild(document.createTextNode(project.name));
-        listItemDiv.appendChild(listItemConfigButton);
 
         projectsContainerDiv.appendChild(listItemDiv);
     });
@@ -119,8 +140,4 @@ function clearElement(element) {
 }
 
 
-clearElement(projectsContainerDiv);
 render();
-
-
-// document.body.appendChild(component());

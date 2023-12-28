@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Odin ToDo</title>
     <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app">
         <div class="projects">
+            <div class="projects__header" style="font-size: 3rem;">Odin<br>ToDo</div>
+            <div class="whitespace"></div><div class="whitespace"></div>
             <div class="projects__header">Projects</div>
-            <div class="whitespace"></div>
             <div class="projects__list">
                 <!-- <div class="projects__list__item">
                     Work
@@ -27,16 +28,17 @@
                 </div> -->
             </div>
 
-            <div class="whitespace"></div>
             <div class="projects__add__button">
-                + New Projects
+                Create Project + 
             </div>
 
             
             <form class="projects__new-project-form">
                 <input type="text" class="projects__new-project-form__text-input"></input>
-                <input type="button" value="Cancel" class="projects__new-project-form__button projects__new-project-form__button--cancel"></input>
-                <input type="button" value="Create Project" class="projects__new-project-form__button projects__new-project-form__button--create"></input>
+                <div>
+                    <input type="button" value="Cancel" class="projects__new-project-form__button projects__new-project-form__button--cancel"></input>
+                    <input type="button" value="Create Project" class="projects__new-project-form__button projects__new-project-form__button--create"></input>
+                </div>            
             </form>
 
 
