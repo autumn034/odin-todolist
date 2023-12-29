@@ -5,18 +5,82 @@ html, body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1, h2, h3 {
+    font-weight: unset;
+}
+
+.h1, .h2, h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.h1 {
+    font-size: 4rem;
+}
+
 .app {
     display: flex;
     width: 100vw;
+    max-width: 1200px;
     height: 100vh;
+    margin: auto;
 }
 
-.whitespace {
-    height: 32px;
+.margin_bottom-s {
+    margin-bottom: 1rem;
+}
+
+.margin_bottom-m {
+    margin-bottom: 2rem;
+}
+
+.margin_bottom-l {
+    margin-bottom: 4rem;
+}
+
+.flex_horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.button {
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    user-select: none; /* disable text selection */
+
+    /* vertical align center text */
+    display: flex;
+    align-items: center;
+}
+
+.button:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.button--project {
+    padding: 8px 16px;
+}
+
+.button--project:hover {
+    background-color: #1072FA;
+    color: #ffffff;
+}
+
+.button--addProject {
+    width: 100%;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.button--addProject:hover {
+    background-color: #ffffff;
+    color: #000000;
 }
 
 /* Projects */
-.projects {
+.sidebar {
     background-color: #ffffff;;
     width: 25vw;
     min-width: 250px;
@@ -38,18 +102,12 @@ html, body {
 }
 
 .projects__list__item {
-    padding: 8px 16px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+
 }
 
 .projects__list__item:hover {
-    cursor: pointer;
-    background-color: #1072FA;
-    color: #ffffff;
-    user-select: none; /* disable text selection */
+
 }
 
 .projects__list__item--active {
@@ -64,12 +122,8 @@ html, body {
 }
 
 .projects__add__button {
-    background-color: #ffffff;
-    padding: 12px 16px;
-    border-radius: 4px;
-
-    text-align: right;
-    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 2px;
     margin-left: auto;
 }
 
@@ -90,6 +144,7 @@ html, body {
     border-radius: 4px;
     box-sizing: border-box;
     width: 100%;
+    margin-bottom: 8px;
 }
 
 .projects__new-project-form__button {

@@ -34,11 +34,12 @@ function save()
 }
 
 
-const projectsContainerDiv = document.querySelector(".projects__list");
+const projectsContainerDiv = document.querySelector("#project_container");
+
 const addNewProjectsDiv = document.querySelector(".projects__add__button");
 const projectsNewProjectFormDiv = document.querySelector(".projects__new-project-form");
-const projectsFormCancelButton = document.querySelector(".projects__new-project-form__button--cancel");
-const projectsFormAddButton = document.querySelector(".projects__new-project-form__button--create");
+const projectsFormCancelButton = document.querySelector("#project_addCancelButton");
+const projectsFormAddButton = document.querySelector("#project_addSubmitButton");
 const newProjectInput = document.querySelector(".projects__new-project-form__text-input");
 
 
@@ -50,29 +51,6 @@ projectsContainerDiv.addEventListener("click", e => {
     activeProjectId = e.target.dataset.projectId;
     saveAndRender();
 });
-
-// projectsContainerDiv.addEventListener("contextmenu", e => {
-//     if (!(e.target.classList.contains("projects__list__item"))) {
-//         return;
-//     }
-    
-//     e.preventDefault();
-
-//     let menu = document.createElement("div");
-//     menu.style.position = "absolute";
-//     menu.style.backgroundColor = "black";
-//     menu.style.height = "500px";
-//     menu.style.width = "500px";
-//     menu.style.top = "5px";
-
-//     e.target.style.position = "relative";
-//     e.target.appendChild(menu);
-
-
-    
-
-
-// });
 
 
 addNewProjectsDiv.addEventListener("click", (e) => {
@@ -112,6 +90,8 @@ function render() {
     projects.forEach(project => {
         let listItemDiv = document.createElement("div");
         listItemDiv.className = "projects__list__item";
+        listItemDiv.classList.add("button");
+        listItemDiv.classList.add("button--project");
 
         // add css to a project that show that it was selected
         if (activeProjectId == project.id) 

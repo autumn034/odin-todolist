@@ -1,89 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odin ToDo</title>
-    <script defer src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="app">
-        <div class="projects">
-            <div class="projects__header" style="font-size: 3rem;">Odin<br>ToDo</div>
-            <div class="whitespace"></div><div class="whitespace"></div>
-            <div class="projects__header">Projects</div>
-            <div class="projects__list">
-                <!-- <div class="projects__list__item">
-                    Work
-                    <img src="asset/cog.svg" alt="Edit Project" class="projects__list__item__config__button">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Odin ToDo</title>
+        <script defer src="main.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <main class="app">
+            <section class="sidebar">
+                <h1 class="h1">
+                    Odin
+                    <br>
+                    ToDo
+                </h1>
+
+
+                <div class="projects__header">Projects</div>
+                <div class="projects__list" id="project_container"></div>
+                <div class="projects__add__button">+</div>            
+                <div class="projects__new-project-form">
+                    <input type="text" class="projects__new-project-form__text-input"></input>
+
+                    <div class="flex_horizontal">
+                        <div id="project_addSubmitButton" class="button button--addProject">Create Project</div>
+                        <div id="project_addCancelButton" class="button button--addProject">Cancel</div>
+                    </div>
                 </div>
-                <div class="projects__list__item">
-                    School
-                    <img src="asset/cog.svg" alt="Edit Project" class="projects__list__item__config__button">
+            </section>
+
+        
+            <div class="tasks">
+                <div class="tasks__header">Work</div>
+                <div class="whitespace"></div>
+                <div class="tasks__list">
+                    <div class="tasks__list__item">
+                        <div class="tasks__list__item__section">
+                            <div class="tasks__list__item__check"></div>
+                            Clean house
+                        </div>
+                        <div class="tasks__list__item__section">
+                            Due Date
+                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
+                        </div>
+                    </div>
+
+                    <div class="tasks__list__item">
+                        <div class="tasks__list__item__section">
+                            <div class="tasks__list__item__check"></div>
+                            Clean house
+                        </div>
+                        <div class="tasks__list__item__section">
+                            Due Date
+                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
+                        </div>
+                    </div>
+
+                    <div class="tasks__list__item">
+                        <div class="tasks__list__item__section">
+                            <div class="tasks__list__item__check"></div>
+                            Clean house
+                        </div>
+                        <div class="tasks__list__item__section">
+                            Due Date
+                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
+                        </div>
+                    </div>
+
                 </div>
-                <div class="projects__list__item">
-                    Personal
-                    <img src="asset/cog.svg" alt="Edit Project" class="projects__list__item__config__button">
-                </div> -->
             </div>
 
-            <div class="projects__add__button">
-                Create Project + 
-            </div>
 
-            
-            <form class="projects__new-project-form">
-                <input type="text" class="projects__new-project-form__text-input"></input>
-                <div>
-                    <input type="button" value="Cancel" class="projects__new-project-form__button projects__new-project-form__button--cancel"></input>
-                    <input type="button" value="Create Project" class="projects__new-project-form__button projects__new-project-form__button--create"></input>
-                </div>            
-            </form>
-
-
-            
-        </div>
-    
-        <div class="tasks">
-            <div class="tasks__header">Work</div>
-            <div class="whitespace"></div>
-            <div class="tasks__list">
-                <div class="tasks__list__item">
-                    <div class="tasks__list__item__section">
-                        <div class="tasks__list__item__check"></div>
-                        Clean house
-                    </div>
-                    <div class="tasks__list__item__section">
-                        Due Date
-                        <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
-                    </div>
-                </div>
-
-                <div class="tasks__list__item">
-                    <div class="tasks__list__item__section">
-                        <div class="tasks__list__item__check"></div>
-                        Clean house
-                    </div>
-                    <div class="tasks__list__item__section">
-                        Due Date
-                        <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
-                    </div>
-                </div>
-
-                <div class="tasks__list__item">
-                    <div class="tasks__list__item__section">
-                        <div class="tasks__list__item__check"></div>
-                        Clean house
-                    </div>
-                    <div class="tasks__list__item__section">
-                        Due Date
-                        <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</body>
+        </main>
+    </body>
 </html>
