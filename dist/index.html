@@ -10,26 +10,51 @@
 
     <body>
         <main class="app">
+
             <section class="sidebar">
-                <h1 class="h1">
-                    Odin
-                    <br>
-                    ToDo
-                </h1>
+                <h1 class="h1 margin_bottom-l">Odin<br>ToDo</h1>
 
-
-                <div class="projects__header">Projects</div>
-                <div class="projects__list" id="project_container"></div>
-                <div class="projects__add__button">+</div>            
-                <div class="projects__new-project-form">
-                    <input type="text" class="projects__new-project-form__text-input"></input>
-
-                    <div class="flex_horizontal">
-                        <div id="project_addSubmitButton" class="button button--addProject">Create Project</div>
-                        <div id="project_addCancelButton" class="button button--addProject">Cancel</div>
+                <div class="h2">Projects</div>
+                <div class="projects">                    
+                    <div id="projectContainer" class="projects__list" ></div>
+                    <div id="createProjectButton" class="projects__button">+</div>
+                    <div id="createProjectForm" class="projects__new-project-form">
+                        <input type="text" id="createProjectTextInput" class="projects__text-input"></input>
+    
+                        <div class="flex_horizontal">
+                            <button id="createProjectSubmitButton" class="projects__button projects__button--bw">Accept</button>
+                            <button id="createProjectCancelButton" class="projects__button projects__button--bw">Cancel</button>
+                        </div>
                     </div>
                 </div>
             </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             <div class="tasks">
@@ -68,7 +93,6 @@
                             <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
                         </div>
                     </div>
-
                 </div>
             </div>
 

@@ -11,10 +11,15 @@ h1, h2, h3 {
 
 .h1, .h2, h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 1rem;
 }
 
 .h1 {
     font-size: 4rem;
+}
+
+.h2 {
+    font-size: 2rem;
 }
 
 .app {
@@ -43,56 +48,15 @@ h1, h2, h3 {
     gap: 8px;
 }
 
-.button {
-    padding: 4px;
-    border-radius: 2px;
-    cursor: pointer;
-    user-select: none; /* disable text selection */
-
-    /* vertical align center text */
-    display: flex;
-    align-items: center;
-}
-
-.button:hover {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.button--project {
-    padding: 8px 16px;
-}
-
-.button--project:hover {
-    background-color: #1072FA;
-    color: #ffffff;
-}
-
-.button--addProject {
-    width: 100%;
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.button--addProject:hover {
-    background-color: #ffffff;
-    color: #000000;
-}
 
 /* Projects */
 .sidebar {
-    background-color: #ffffff;;
+    background-color: #ffffff;
     width: 25vw;
     min-width: 250px;
     max-width: 350px;
     box-sizing: border-box;
     padding: 32px;
-}
-
-.projects__header {
-    font-size: 2.5rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 4px 12px;
 }
 
 .projects__list {
@@ -101,74 +65,59 @@ h1, h2, h3 {
     gap: 4px;
 }
 
-.projects__list__item {
-
-
-}
-
-.projects__list__item:hover {
-
-}
-
-.projects__list__item--active {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.projects__list__item--active:hover {
-    background-color: #000000;
-    color: #ffffff;
-    cursor: default;
-}
-
-.projects__add__button {
-    padding: 8px 16px;
-    border-radius: 2px;
-    margin-left: auto;
-}
-
-.projects__add__button:hover {
-    background-color: #1072FA;
-    color: #ffffff;
-    cursor: pointer;
-}
-
 .projects__new-project-form {
     display: none;
 }
 
-.projects__new-project-form__text-input {
+.projects__text-input {
     all: unset;
     background-color: #f0f0f0;
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: 4px;
+    border-radius: 2px;
     box-sizing: border-box;
     width: 100%;
     margin-bottom: 8px;
 }
 
-.projects__new-project-form__button {
+.projects__button {
     all: unset;
-    background-color: #f0f0f0;
-    padding: 16px 16px;
-    border-radius: 8px;
-    transition: background-color .3s ;
-    
-}
-
-.projects__new-project-form__button--cancel {
-    background-color: rgb(0, 0, 0);
-    color: #ffffff;
-}
-
-.projects__new-project-form__button--create {
-    background-color: rgb(0, 0, 0);
-    color: #ffffff;
-}
-
-.projects__new-project-form__button:hover {
+    padding: 4px;
+    border-radius: 2px;
     cursor: pointer;
+    user-select: none; /* disable text selection */
+    width: 100%;
+
+    /* vertical align center text */
+    display: flex;
+    align-items: center;
 }
+
+.projects__button:hover {
+    background-color: #1072FA;
+    color: #ffffff;
+}
+
+.projects__button--bw {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.projects__button--bw:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.projects__button--disable {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.projects__button--disable:hover {
+    background-color: #000000;
+    color: #ffffff;
+    cursor: default;
+}
+
 
 /* Tasks */
 .tasks {
