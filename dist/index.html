@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Odin ToDo</title>
         <script defer src="main.js"></script>
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
     </head>
 
     <body>
@@ -13,7 +13,7 @@
             <nav class="sidebar">
                 <h1 class="h1 margin_bottom-l">Odin<br>ToDo</h1>
 
-                <div class="h3">Projects</div>
+                <div class="h3 margin_bottom-s">Projects</div>
                 <div class="projects">
                     <div id="projectContainer" class="projects__list" ></div>
                     <div id="createProjectButton" class="projects__button">+</div>
@@ -28,10 +28,20 @@
                 </div>
             </nav>
         
-            <main class="main">
-                <div class="h2 margin_bottom-m">Work</div>
+            <main id="main" class="main">
 
-                <div class="tasks">
+                <div class="flex_horizontal">
+                    <div id="activeProjectHeader" class="h2">
+                        Work
+                    </div>
+                    
+                    <div>
+                        <button id="deleteProjectButton" class="tasks__header-button"><img src="asset/trash.svg"></button>
+                    </div>
+                    
+                </div>
+
+                <div id="taskContainer" class="tasks">
                     <div class="tasks__item">
                         <div class="tasks__item-section">
                             <div class="tasks__check">X</div>
