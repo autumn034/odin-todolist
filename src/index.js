@@ -1,3 +1,5 @@
+import "./style.css"
+
 const LOCAL_STORAGE_PROJECTS_KEY = "odintodo.projects";
 const LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY = "odintodo.focus-project";
 const projectsContainerDiv = document.querySelector("#projectContainer");
@@ -78,15 +80,7 @@ function render() {
     projects.forEach(project => {
         let projectButton = document.createElement("button");
         projectButton.classList.add("projects__button");
-        
-        
-        // listItemDiv = document.createElement("div");
-        // listItemDiv.className = "projects__list__item";
-        // listItemDiv.classList.add("button");
-        // listItemDiv.classList.add("button--project");
-        // add css to a project that show that it was selected
-
-
+      
         if (activeProjectId == project.id) 
         {
             projectButton.classList.add("projects__button--disable");
@@ -97,6 +91,10 @@ function render() {
 
         projectsContainerDiv.appendChild(projectButton);
     });
+}
+
+function renderMain() {
+
 }
 
 function clearElement(element) {

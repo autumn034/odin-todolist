@@ -1,4 +1,11 @@
 /*  */
+
+@font-face {
+    font-family: "Silkscreen";
+    src: url("./slkscr.ttf") format("truetype");
+}
+
+
 html, body {
     margin: unset;
     padding: unset;
@@ -9,7 +16,7 @@ h1, h2, h3 {
     font-weight: unset;
 }
 
-.h1, .h2, h3 {
+.h1, .h2, .h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 1rem;
 }
@@ -19,6 +26,10 @@ h1, h2, h3 {
 }
 
 .h2 {
+    font-size: 3rem;
+}
+
+.h3 {
     font-size: 2rem;
 }
 
@@ -28,6 +39,8 @@ h1, h2, h3 {
     max-width: 1200px;
     height: 100vh;
     margin: auto;
+    padding: 32px;
+    box-sizing: border-box;
 }
 
 .margin_bottom-s {
@@ -56,7 +69,6 @@ h1, h2, h3 {
     min-width: 250px;
     max-width: 350px;
     box-sizing: border-box;
-    padding: 32px;
 }
 
 .projects__list {
@@ -120,55 +132,46 @@ h1, h2, h3 {
 
 
 /* Tasks */
-.tasks {
+.main {
     flex: 1;
     max-width: 1000px;
     box-sizing: border-box;
     padding: 64px;
 }
 
-.tasks__header {
-    font-size: 2rem;
-}
-
-.tasks__list {
+.tasks {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.tasks__list__item {
-    background-color: #f8f9fc;
+.tasks__item {
     padding: 12px 8px;
-    border-radius: 8px;
-    transition: background-color .3s ;
+    border-radius: 4px;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.tasks__list__item__check {
-    width: 25px;
-    height: 25px;
-    border: 1px solid black;
-    border-radius: 50%;
-
-    transition: background-color 0.2s;
+.tasks__check {
+    font-size: 2rem;
+    font-family: "Silkscreen";
 }
 
-.tasks__list__item__check:hover {
+.tasks__check:hover {
     cursor: pointer;
-    background-color: green;
 }
 
-.tasks__list__item__section {
+.tasks__item-section {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.tasks__list__item__config {
+.tasks__icon {
     height: 25px;
     box-sizing: border-box;
     padding: 4px;
@@ -176,7 +179,7 @@ h1, h2, h3 {
     border-radius: 50%;
 }
 
-.tasks__list__item__config:hover {
+.tasks__icon:hover {
     background-color: #e7e7e7;
     padding: 4px;
 }

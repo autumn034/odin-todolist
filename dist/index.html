@@ -9,13 +9,12 @@
     </head>
 
     <body>
-        <main class="app">
-
-            <section class="sidebar">
+        <div class="app">
+            <nav class="sidebar">
                 <h1 class="h1 margin_bottom-l">Odin<br>ToDo</h1>
 
-                <div class="h2">Projects</div>
-                <div class="projects">                    
+                <div class="h3">Projects</div>
+                <div class="projects">
                     <div id="projectContainer" class="projects__list" ></div>
                     <div id="createProjectButton" class="projects__button">+</div>
                     <div id="createProjectForm" class="projects__new-project-form">
@@ -27,76 +26,29 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </nav>
         
-            <div class="tasks">
-                <div class="tasks__header">Work</div>
-                <div class="whitespace"></div>
-                <div class="tasks__list">
-                    <div class="tasks__list__item">
-                        <div class="tasks__list__item__section">
-                            <div class="tasks__list__item__check"></div>
-                            Clean house
-                        </div>
-                        <div class="tasks__list__item__section">
-                            Due Date
-                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
-                        </div>
-                    </div>
+            <main class="main">
+                <div class="h2 margin_bottom-m">Work</div>
 
-                    <div class="tasks__list__item">
-                        <div class="tasks__list__item__section">
-                            <div class="tasks__list__item__check"></div>
-                            Clean house
+                <div class="tasks">
+                    <div class="tasks__item">
+                        <div class="tasks__item-section">
+                            <div class="tasks__check">X</div>
+                            <span>Clean house</span>
                         </div>
-                        <div class="tasks__list__item__section">
-                            Due Date
-                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
-                        </div>
-                    </div>
-
-                    <div class="tasks__list__item">
-                        <div class="tasks__list__item__section">
-                            <div class="tasks__list__item__check"></div>
-                            Clean house
-                        </div>
-                        <div class="tasks__list__item__section">
-                            Due Date
-                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__list__item__config">
+                        
+                        <div class="tasks__item-section">
+                            <span>2023-12-30</span>
+                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">
+                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">
                         </div>
                     </div>
                 </div>
-            </div>
+
+            </main>
 
 
-        </main>
+        </div>
     </body>
 </html>
