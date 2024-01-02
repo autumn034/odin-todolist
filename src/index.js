@@ -75,8 +75,10 @@ cancelAddTaskButton.addEventListener("click", e =>
     e.preventDefault();
     addTaskTextInput.value = "";
     addTaskDate.value = null;
-
 });
+
+
+
 
 projectsContainerDiv.addEventListener("click", e => 
 {
@@ -190,6 +192,9 @@ function renderTasks(project) {
 
         let taskNameElement = taskElement.querySelector(".tasks__name");
         taskNameElement.innerText = task.name;
+        if (task.doneStatus == true) {
+            taskNameElement.classList.add("task__checked");
+        }
 
         let taskDueDateElement = taskElement.querySelector(".tasks__due-date");
         taskDueDateElement.innerText = task.due;
@@ -197,8 +202,42 @@ function renderTasks(project) {
         let taskCheckElement = taskElement.querySelector(".tasks__check");
         taskCheckElement.id = task.id;
 
+
+        let taskCheckButton = taskElement.querySelector(".tasks__check");
+
+        taskCheckButton.addEventListener("click", e => 
+        {
+            let project = getProjectFromId(activeProjectId);
+            let task = project.tasks.find(ele => ele.id == e.target.id);
+
+            if (task.doneStatus) {
+                task.doneStatus = false;
+            } else {
+                task.doneStatus = true;
+            }
+            // let parentProject = getProjectFromId(activeProjectId);
+            // for (let i = 0; i < parentProject.tasks.length; i++)
+            // {
+            //     if (parentProject.tasks[i].id == e.target.id) 
+            //     {
+            //         parentProject.tasks.splice(i, 1);
+            //         break;
+            //     }
+            // }
+
+            saveAndRender();
+            
+        });
+
+
+
         taskContainer.appendChild(taskElement);
     });
+}
+
+function getProjectFromId(id) 
+{
+    return projects.find(project => project.id == id);
 }
 
 function clearElement(element) {

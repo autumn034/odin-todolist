@@ -245,3 +245,7 @@ h1, h2, h3 {
     color: white;
     border: 1px solid #1072FA;
 }
+
+.task__checked {
+    text-decoration: line-through;
+}
