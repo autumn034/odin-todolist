@@ -35,11 +35,18 @@ const addTaskTextInput = document.querySelector("#addTaskTextInput");
 const confirmAddTaskButton = document.querySelector("#confirmAddTaskButton");
 const cancelAddTaskButton = document.querySelector("#cancelAddTaskButton");
 const addTaskDate = document.querySelector("#addTaskDate");
-
+const showTaskFormButton = document.querySelector("#showTaskFormButton");
+const newTaskForm = document.querySelector("#newTaskForm");
 
 let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || projectsTemplate;
 let activeProjectId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY)) || null;
 
+
+showTaskFormButton.addEventListener("click", e => 
+{
+    newTaskForm.style.display = "block";    
+    showTaskFormButton.style.display = "none";
+});
 
 confirmAddTaskButton.addEventListener("click", e => 
 {
@@ -64,6 +71,8 @@ confirmAddTaskButton.addEventListener("click", e =>
 
     let taskObject = createTask(addTaskTextInput.value, addTaskDate.value);
     let projectObject = projects.find(project => project.id == activeProjectId);
+    showTaskFormButton.style.display = "";
+    newTaskForm.style.display = "none";
 
     projectObject.tasks.push(taskObject);
     saveAndRender();
@@ -75,10 +84,10 @@ cancelAddTaskButton.addEventListener("click", e =>
     e.preventDefault();
     addTaskTextInput.value = "";
     addTaskDate.value = null;
+    showTaskFormButton.style.display = "";
+    newTaskForm.style.display = "none";
+
 });
-
-
-
 
 projectsContainerDiv.addEventListener("click", e => 
 {
