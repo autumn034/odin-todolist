@@ -196,13 +196,10 @@ h1, h2, h3 {
     height: 25px;
     box-sizing: border-box;
     padding: 4px;
-    transition: background-color 0.3s;
-    border-radius: 50%;
 }
 
 .tasks__icon:hover {
-    background-color: #e7e7e7;
-    padding: 4px;
+    cursor:pointer;
 }
 
 .show-task-form-button {

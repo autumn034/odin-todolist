@@ -37,30 +37,64 @@ const cancelAddTaskButton = document.querySelector("#cancelAddTaskButton");
 const addTaskDate = document.querySelector("#addTaskDate");
 const showTaskFormButton = document.querySelector("#showTaskFormButton");
 const newTaskForm = document.querySelector("#newTaskForm");
-const deleteTaskButton = document.querySelector("#yo");
+const editTaskFormTemplate = document.querySelector("#editTaskFormTemplate");
+
 
 let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || projectsTemplate;
 let activeProjectId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY)) || null;
 
 
-// deleteTaskButton.addEventListener("click", e => 
-// {
-//             // let parentProject = getProjectFromId(activeProjectId);
-//             // for (let i = 0; i < parentProject.tasks.length; i++)
-//             // {
-//             //     if (parentProject.tasks[i].id == e.target.id) 
-//             //     {
-//             //         parentProject.tasks.splice(i, 1);
-//             //         break;
-//             //     }
-//             // }
-//             saveAndRender();
-// });
-
 showTaskFormButton.addEventListener("click", e => 
 {
     newTaskForm.style.display = "block";    
     showTaskFormButton.style.display = "none";
+});
+
+
+
+//edit button
+
+taskContainer.addEventListener("click", e => 
+{
+    if (!e.target.hasAttribute("data-task-edit-button")) return;
+
+    let currentTaskItemContainer = findAncestorByClass(e.target, "tasks__item");
+    let activeProject = getProjectFromId(activeProjectId);
+    let taskObject = getTaskObjectById(activeProject, currentTaskItemContainer.dataset.taskId);
+
+
+    let taskEditElement = document.importNode(editTaskFormTemplate.content, true);
+
+    // set current list value to the form 
+    let newNameInput = taskEditElement.querySelector("#addTaskTextInput");
+    newNameInput.value = taskObject.name;
+    let newDateInput = taskEditElement.querySelector("#addTaskDate")
+    newDateInput.value = taskObject.due;
+
+    // hides the editing task element
+    currentTaskItemContainer.style.display = "none";
+
+
+    taskEditElement.querySelector("#confirmAddTaskButton").addEventListener("click", e => 
+    {
+        // update the data
+        taskObject.name = newNameInput.value;
+        taskObject.due = newDateInput.value;
+
+        currentTaskItemContainer.style.display = "";
+
+        saveAndRender();
+    })
+
+
+    // taskEditElement.querySelector("addTaskDate").value = 
+
+    taskContainer.insertBefore(taskEditElement, currentTaskItemContainer.nextSibling);
+
+    //saveAndRender();
+
+
+
 });
 
 // delete button 
@@ -70,8 +104,6 @@ taskContainer.addEventListener("click", e =>
     let taskItemContainer = findAncestorByClass(e.target, "tasks__item");
     let taskId = taskItemContainer.dataset.taskId;
     
-
-
     let parentProject = getProjectFromId(activeProjectId);
     for (let i = 0; i < parentProject.tasks.length; i++)
     {
@@ -83,6 +115,16 @@ taskContainer.addEventListener("click", e =>
     }
     saveAndRender();
 });
+
+function getTaskObjectById(project, taskID) 
+{
+    for (let i = 0; i < project.tasks.length; i++)
+    {
+        if (project.tasks[i].id == taskID) return project.tasks[i];
+    }
+    
+    return null;
+};
 
 function findAncestorByClass (currentElement, targetClass) {
     let ancestorElement = currentElement;
@@ -113,10 +155,9 @@ confirmAddTaskButton.addEventListener("click", e =>
 
     let taskObject = createTask(addTaskTextInput.value, addTaskDate.value);
     let projectObject = projects.find(project => project.id == activeProjectId);
-    showTaskFormButton.style.display = "";
-    newTaskForm.style.display = "none";
-
     projectObject.tasks.push(taskObject);
+
+    clearAddTaskForm();
     saveAndRender();
 
 });
@@ -124,12 +165,17 @@ confirmAddTaskButton.addEventListener("click", e =>
 cancelAddTaskButton.addEventListener("click", e => 
 {
     e.preventDefault();
+    clearAddTaskForm();
+
+});
+
+
+function clearAddTaskForm() {
     addTaskTextInput.value = "";
     addTaskDate.value = null;
     showTaskFormButton.style.display = "";
     newTaskForm.style.display = "none";
-
-});
+}
 
 projectsContainerDiv.addEventListener("click", e => 
 {

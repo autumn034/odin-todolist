@@ -78,6 +78,19 @@
 
         </div>
 
+        <template id="editTaskFormTemplate">
+            <div class="tasks__item">
+                <div class="tasks__item-section">
+                    <input id="addTaskTextInput" class="tasks__text-input" type="text">
+                </div>
+                <div class="tasks__item-section">
+                    <input id="addTaskDate" type="date">
+                    <button id="confirmAddTaskButton" class="task__button" data-add-task-confirm-button>Confirm</button>
+                    <button id="cancelAddTaskButton" class="task__button" data-add-task-cancel-button>Cancel</button>
+                </div>
+            </div>
+        </template>
+
         <template id="task-template">
             <div class="tasks__item">   
                 <div class="tasks__item-section">
@@ -86,10 +99,10 @@
                 </div>                
                 <div class="tasks__item-section">
                     <span class="tasks__due-date"></span>
-                    <div data-task-config-button>
-                        <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">
-                        <img src="asset/trash.svg" alt="Delete Project" class="tasks__icon" data-delete-task-button>  
-                    </div>                    
+                    <div>
+                        <img src="asset/edit.svg" class="tasks__icon" data-task-edit-button>
+                        <img src="asset/trash.svg"  class="tasks__icon" data-delete-task-button>  
+                    </div>
                 </div>
             </div>
         </template>
