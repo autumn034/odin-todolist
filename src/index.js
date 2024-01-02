@@ -37,16 +37,58 @@ const cancelAddTaskButton = document.querySelector("#cancelAddTaskButton");
 const addTaskDate = document.querySelector("#addTaskDate");
 const showTaskFormButton = document.querySelector("#showTaskFormButton");
 const newTaskForm = document.querySelector("#newTaskForm");
+const deleteTaskButton = document.querySelector("#yo");
 
 let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || projectsTemplate;
 let activeProjectId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY)) || null;
 
+
+// deleteTaskButton.addEventListener("click", e => 
+// {
+//             // let parentProject = getProjectFromId(activeProjectId);
+//             // for (let i = 0; i < parentProject.tasks.length; i++)
+//             // {
+//             //     if (parentProject.tasks[i].id == e.target.id) 
+//             //     {
+//             //         parentProject.tasks.splice(i, 1);
+//             //         break;
+//             //     }
+//             // }
+//             saveAndRender();
+// });
 
 showTaskFormButton.addEventListener("click", e => 
 {
     newTaskForm.style.display = "block";    
     showTaskFormButton.style.display = "none";
 });
+
+// delete button 
+taskContainer.addEventListener("click", e => 
+{
+    if (!e.target.hasAttribute("data-delete-task-button")) return;
+    let taskItemContainer = findAncestorByClass(e.target, "tasks__item");
+    let taskId = taskItemContainer.dataset.taskId;
+    
+
+
+    let parentProject = getProjectFromId(activeProjectId);
+    for (let i = 0; i < parentProject.tasks.length; i++)
+    {
+        if (parentProject.tasks[i].id == taskId) 
+        {
+            parentProject.tasks.splice(i, 1); // remove element
+            break;
+        }
+    }
+    saveAndRender();
+});
+
+function findAncestorByClass (currentElement, targetClass) {
+    let ancestorElement = currentElement;
+    while ( (ancestorElement = ancestorElement.parentElement) && !ancestorElement.classList.contains(targetClass));
+    return ancestorElement;
+}
 
 confirmAddTaskButton.addEventListener("click", e => 
 {
@@ -199,6 +241,9 @@ function renderTasks(project) {
     {
         let taskElement = document.importNode(taskTemplate.content, true);
 
+        let taskRootElement = taskElement.querySelector(".tasks__item");
+        taskRootElement.dataset.taskId = task.id;
+
         let taskNameElement = taskElement.querySelector(".tasks__name");
         taskNameElement.innerText = task.name;
         if (task.doneStatus == true) {
@@ -224,15 +269,7 @@ function renderTasks(project) {
             } else {
                 task.doneStatus = true;
             }
-            // let parentProject = getProjectFromId(activeProjectId);
-            // for (let i = 0; i < parentProject.tasks.length; i++)
-            // {
-            //     if (parentProject.tasks[i].id == e.target.id) 
-            //     {
-            //         parentProject.tasks.splice(i, 1);
-            //         break;
-            //     }
-            // }
+
 
             saveAndRender();
             

@@ -79,14 +79,17 @@
         </div>
 
         <template id="task-template">
-            <div class="tasks__item">
+            <div class="tasks__item">   
                 <div class="tasks__item-section">
                     <div class="tasks__check">X</div>
                     <span class="tasks__name"></span>
                 </div>                
                 <div class="tasks__item-section">
                     <span class="tasks__due-date"></span>
-                    <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">                            
+                    <div data-task-config-button>
+                        <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">
+                        <img src="asset/trash.svg" alt="Delete Project" class="tasks__icon" data-delete-task-button>  
+                    </div>                    
                 </div>
             </div>
         </template>

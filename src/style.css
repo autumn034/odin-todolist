@@ -59,6 +59,7 @@ h1, h2, h3 {
     flex-direction: row;
     gap: 8px;
     align-items: center;
+    width: 100%;
 }
 
 
@@ -86,9 +87,9 @@ h1, h2, h3 {
     background-color: #f0f0f0;
     padding: 4px;
     border-radius: 2px;
-    box-sizing: border-box;
     width: 100%;
     margin-bottom: 8px;
+    box-sizing: border-box;
 }
 
 .projects__button {
@@ -98,6 +99,8 @@ h1, h2, h3 {
     cursor: pointer;
     user-select: none; /* disable text selection */
     width: 100%;
+    box-sizing: border-box;
+    
 
     /* vertical align center text */
     display: flex;
@@ -176,6 +179,7 @@ h1, h2, h3 {
 .tasks__check {
     font-size: 2rem;
     font-family: "Silkscreen";
+    user-select: none;
 }
 
 .tasks__check:hover {
