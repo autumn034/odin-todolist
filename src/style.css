@@ -110,12 +110,12 @@ h1, h2, h3 {
 }
 
 .projects__button--bw {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #f0f0f0;
+    color: #000000;
 }
 
 .projects__button--bw:hover {
-    background-color: #ffffff;
+    background-color: #d6d6d6;
     color: #000000;
 }
 
@@ -143,6 +143,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    margin-bottom: 4px;
 }
 
 .tasks__header-button {
@@ -155,18 +156,17 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
-
 .tasks__header-button > img {    
     width: 2.5rem;
     height: auto;
 }
-
 
 .tasks__item {
     padding: 12px 8px;
     border-radius: 4px;
     border: 1px solid #e7e7e7;
     box-sizing: border-box;
+    font-size: 1rem;
 
     display: flex;
     align-items: center;
@@ -199,4 +199,49 @@ h1, h2, h3 {
 .tasks__icon:hover {
     background-color: #e7e7e7;
     padding: 4px;
+}
+
+.show-task-form-button {
+    all: unset;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #e7e7e7;
+}
+
+.show-task-form-button:hover {
+    cursor: pointer;
+}
+
+.tasks__text-input {
+    font-size: inherit;
+    width: 20vw;
+    max-width: 300px;
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+    box-sizing: border-box;
+}
+
+.tasks__text-input:focus {
+    outline: none;
+    border-bottom: 1px solid #969696;    
+}
+
+.task__button {
+    all: unset;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none; /* disable text selection */
+
+    /* vertical align center text */
+    display: flex;
+    align-items: center;
+    background-color: unset;
+    border: 1px solid #e7e7e7;
+}
+
+.task__button:hover {
+    background-color: #1072FA;
+    color: white;
+    border: 1px solid #1072FA;
 }

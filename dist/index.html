@@ -42,7 +42,7 @@
                 </div>
 
                 <div id="taskContainer" class="tasks">
-                    <div class="tasks__item">
+                    <!-- <div class="tasks__item">
                         <div class="tasks__item-section">
                             <div class="tasks__check">X</div>
                             <span>Clean house</span>
@@ -50,15 +50,47 @@
                         
                         <div class="tasks__item-section">
                             <span>2023-12-30</span>
-                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">
-                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">
+                            <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">                            
+                        </div>
+                    </div> -->
+                </div>
+                
+                <button class="show-task-form-button">
+                    + New Task
+                </button>
+
+
+
+                <form class="task-form">
+                    <div class="tasks__item">
+                        <div class="tasks__item-section">
+                            <input id="addTaskTextInput" class="tasks__text-input" type="text">
+                        </div>
+                        <div class="tasks__item-section">
+                            <input id="addTaskDate" type="date">
+                            <button id="confirmAddTaskButton" class="task__button">Confirm</button>
+                            <button id="cancelAddTaskButton" class="task__button">Cancel</button>
                         </div>
                     </div>
-                </div>
+                </form>
 
             </main>
 
 
         </div>
+
+        <template id="task-template">
+            <div class="tasks__item">
+                <div class="tasks__item-section">
+                    <div class="tasks__check">X</div>
+                    <span class="tasks__name"></span>
+                </div>                
+                <div class="tasks__item-section">
+                    <span class="tasks__due-date"></span>
+                    <img src="asset/cog.svg" alt="Edit Project" class="tasks__icon">                            
+                </div>
+            </div>
+        </template>
+
     </body>
 </html>

@@ -1,5 +1,23 @@
 import "./style.css"
 
+class Task 
+{
+    constructor (id, name, due)
+    {
+        this.id = id
+        this.name = name;
+        this.due = due;
+        this.doneStatus = false;
+    }
+}
+
+const projectsTemplate = 
+[
+    {id: 1, name: "Work", tasks: [new Task(1, "Test1", "12/11/2023"), new Task(2, "Test2", "12/11/2023")] }, 
+    {id: 2, name: "School", tasks: [new Task(1, "Test2", "12/11/2023")]}, 
+    {id: 3, name: "Personal", tasks: [new Task(1, "Test3", "12/11/2023")]}
+];
+
 const LOCAL_STORAGE_PROJECTS_KEY = "odintodo.projects";
 const LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY = "odintodo.focus-project";
 const projectsContainerDiv = document.querySelector("#projectContainer");
@@ -12,27 +30,53 @@ const taskContainer = document.querySelector("#taskContainer");
 const activeProjectHeader = document.querySelector("#activeProjectHeader");
 const deleteProjectButton = document.querySelector("#deleteProjectButton");
 const mainContainer = document.querySelector("#main");
+const taskTemplate = document.querySelector("#task-template");
+const addTaskTextInput = document.querySelector("#addTaskTextInput");
+const confirmAddTaskButton = document.querySelector("#confirmAddTaskButton");
+const cancelAddTaskButton = document.querySelector("#cancelAddTaskButton");
+const addTaskDate = document.querySelector("#addTaskDate");
+
 
 let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECTS_KEY)) || projectsTemplate;
-let activeProjectId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY)) || 1;
+let activeProjectId = JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY)) || null;
 
-class Task 
+
+confirmAddTaskButton.addEventListener("click", e => 
 {
-    constructor (name, due) 
+    e.preventDefault();
+    if (addTaskDate.value == "" || addTaskDate.value == null) 
     {
-        this.name = name;
-        this.due = due;
-        this.doneStatus = false;
+        alert("Please enter the task date.");
+        return;
     }
-}
 
+    if (addTaskTextInput.value == "" || addTaskDate.value == null)
+    {
+        alert("Please input the task name.")
+        return;
+    }
 
-const projectsTemplate = [
-    {id: 1, name: "Work", tasks: [new Task("Test1", Date.now().toString())] }, 
-    {id: 2, name: "School", tasks: [new Task("Test2", Date.now().toString())]}, 
-    {id: 3, name: "Personal", tasks: [new Task("Test3", Date.now().toString())]}
-];
+    if (activeProjectId == "" || activeProjectId == null)
+    {
+        alert("No active project");
+        return;
+    }
 
+    let taskObject = createTask(addTaskTextInput.value, addTaskDate.value);
+    let projectObject = projects.find(project => project.id == activeProjectId);
+
+    projectObject.tasks.push(taskObject);
+    saveAndRender();
+
+});
+
+cancelAddTaskButton.addEventListener("click", e => 
+{
+    e.preventDefault();
+    addTaskTextInput.value = "";
+    addTaskDate.value = null;
+
+});
 
 projectsContainerDiv.addEventListener("click", e => 
 {
@@ -58,7 +102,8 @@ createProjectCancelButton.addEventListener("click", (e) =>
     createProjectForm.style.display = "none";
 });
 
-createProjectSubmitButton.addEventListener("click", (e) => {
+createProjectSubmitButton.addEventListener("click", (e) => 
+{
     createProjectButton.style.display = "block";
     createProjectForm.style.display = "none";
     let createProjectTextInputValue = createProjectTextInput.value;
@@ -83,23 +128,32 @@ deleteProjectButton.addEventListener("click", () =>
     saveAndRender();
 });
 
-function saveAndRender() {
+function saveAndRender() 
+{
     save();
     render();
 }
 
-function save() {
+function save() 
+{
     localStorage.setItem(LOCAL_STORAGE_PROJECTS_KEY, JSON.stringify(projects));
     localStorage.setItem(LOCAL_STORAGE_ACTIVE_PROJECT_ID_KEY, JSON.stringify(activeProjectId));
 }
 
-let createProject = (name) => {
+function createProject(name) 
+{
     return {id: Date.now().toString(), name: name, tasks: []};
 }
 
-function render() {
+function createTask(name, date) 
+{
+    return new Task(Date.now().toString(), name, date);
+}
+
+
+function render() 
+{
     clearElement(projectsContainerDiv);
-    clearElement(taskContainer);
 
     if (activeProjectId == null) 
     {
@@ -118,6 +172,7 @@ function render() {
         {            
             activeProjectHeader.textContent = project.name;
             projectButton.classList.add("projects__button--disable");
+            renderTasks(project);
         }
 
         projectButton.dataset.projectId = project.id;
@@ -127,8 +182,23 @@ function render() {
     });
 }
 
-function renderTasks(projectId) {
+function renderTasks(project) {
+    clearElement(taskContainer);
+    project.tasks.forEach(task => 
+    {
+        let taskElement = document.importNode(taskTemplate.content, true);
 
+        let taskNameElement = taskElement.querySelector(".tasks__name");
+        taskNameElement.innerText = task.name;
+
+        let taskDueDateElement = taskElement.querySelector(".tasks__due-date");
+        taskDueDateElement.innerText = task.due;
+
+        let taskCheckElement = taskElement.querySelector(".tasks__check");
+        taskCheckElement.id = task.id;
+
+        taskContainer.appendChild(taskElement);
+    });
 }
 
 function clearElement(element) {
