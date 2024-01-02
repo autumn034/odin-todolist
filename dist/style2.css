@@ -1,0 +1,10 @@
+@media screen and (max-width: 600px) {
+    .app {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .sidebar {
+        width: 100vw;
+    }
+}

@@ -6,6 +6,7 @@
 }
 
 
+
 html, body {
     margin: unset;
     padding: unset;
@@ -199,7 +200,7 @@ h1, h2, h3 {
 }
 
 .tasks__icon:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .show-task-form-button {
@@ -253,4 +254,28 @@ h1, h2, h3 {
 
 .task__form {
     display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .app {
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        padding: 0px 64px;        
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 8px;
+        max-width: unset;
+    }
+
+    .projects {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .main {
+        padding: 0px;
+    }
 }
